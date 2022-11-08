@@ -37,6 +37,7 @@ CREATE TABLE TRAIN(
     libelle VARCHAR(100),
     nbPlaces int,
     nbEtages int,
+    vitesse float,
     idLigne int,
     PRIMARY KEY(idTrain),
     FOREIGN KEY(idLigne) references LIGNE(idLigne)
@@ -121,7 +122,7 @@ CREATE TABLE CONSTITUE(
     PRIMARY KEY(id_arret,id_ligne)
 
 );
-/*insert into ZONE values(default, 'zone 1');
+insert into ZONE values(default, 'zone 1');
 insert into ZONE values(default, 'zone 2');
 insert into ZONE values(default, 'zone 3');
 insert into ZONE values(default, 'zone 4');
@@ -130,12 +131,12 @@ insert into LIGNE values(default, 'ligne H');
 insert into LIGNE values(default, 'ligne 5');
 
 
-insert into TRAIN values(default, 'RER',250,2,1);
-insert into TRAIN values(default, 'RER',250,2,1);
-insert into TRAIN values(default, 'RER',250,2,1);
+insert into TRAIN values(default, 'RER',250,2,250.0,1);
+insert into TRAIN values(default, 'RER',250,2,250.0,1);
+insert into TRAIN values(default, 'RER',250,2,250.0,1);
 
-insert into TRAIN values(default, 'métro',250,2,2);
-insert into TRAIN values(default, 'métro',250,2,2);
+insert into TRAIN values(default, 'métro',250,2,250.0,2);
+insert into TRAIN values(default, 'métro',250,2,250.0,2);
 
 insert into USAGER values(default, 'Jean','Doe',10,1);
 insert into USAGER values(default, 'Jeanne','Doe',18,NULL);
@@ -169,7 +170,17 @@ insert into CONSTITUE values(4,1);
 insert into STATIONNE values(4,1,'12:20',NULL,NULL);
 insert into STATIONNE values(3,1,'12:40','00:05','personne sur la voie');
 insert into STATIONNE values(2,1,'12:50',NULL,NULL);
-insert into STATIONNE values(1,1,'13:00',NULL,NULL);*/
+insert into STATIONNE values(1,1,'13:00',NULL,NULL);
+
+
+SELECT count(*) as nb_trains
+FROM TRAIN;
+
+
+DELETE from TRAIN
+where idTrain = 5;
+
+SELECT * from TRAIN;
 
 
 
